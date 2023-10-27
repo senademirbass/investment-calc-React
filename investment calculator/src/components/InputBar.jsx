@@ -9,20 +9,21 @@ function InputBar() {
   const [expectedReturn, setExpectedReturn] = useState(6);
   const [duration, setDuration] = useState(10);
 
+  console.log("initialInvest", typeof initialInvest);
   const handleInitialChange = (e) => {
-    setInitialInvest(e.target.value);
+    setInitialInvest(parseFloat(e.target.value));
   };
 
   const handleAnnualChange = (e) => {
-    setAnnualInvest(e.target.value);
+    setAnnualInvest(parseFloat(e.target.value));
   };
 
   const handleReturnChange = (e) => {
-    setExpectedReturn(e.target.value);
+    setExpectedReturn(parseFloat(e.target.value));
   };
 
   const handleDurationChange = (e) => {
-    setDuration(e.target.value);
+    setDuration(parseFloat(e.target.value));
   };
   const result = calculateInvestmentResults({
     initialInvest,
@@ -30,6 +31,7 @@ function InputBar() {
     expectedReturn,
     duration,
   });
+  console.log(result);
   return (
     <>
       <main id="user-input">
